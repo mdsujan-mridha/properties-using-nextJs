@@ -15,11 +15,11 @@ const PropertyCard = ({ property }) => {
             return `$${rates.nightly.toLocaleString()}/night`;
         }
     };
-
+    console.log(property);
     return (
         <div className='rounded-xl shadow-md relative'>
             <img
-                src='https://i.ibb.co/ChszrZB/442414308-3701006730217589-9084962774030967269-n.jpg'
+                src='https://i.ibb.co/dB9JjQz/property.png'
                 alt='property'
                 sizes='100vw'
                 className='object-cover rounded-t-xl'
@@ -83,8 +83,9 @@ const PropertyCard = ({ property }) => {
                             {property.location.city}, {property.location.state}
                         </span>
                     </div>
+                    {/* http://localhost:3000/api/properties/6680583effbf3b8313d012f6 */}
                     <Link
-                        href={`/properties/${property._id}`}
+                       href={`/properties/${property?._id}`}
                         className='h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm'
                     >
                         Details

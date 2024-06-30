@@ -1,5 +1,6 @@
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
+// http://localhost:3000/api/properties/6680583effbf3b8313d012f6
 // fetch properties 
 async function fetchProperties() {
     try {
@@ -8,7 +9,7 @@ async function fetchProperties() {
             return [];
         }
 
-        const res = await fetch(`${apiDomain}/properties`)
+        const res = await fetch(`${apiDomain}/properties`,{ cache: 'force-cache' })
         if (!res.ok) {
             throw new Error(`An error has occured: ${res.statusText}`)
         }
@@ -28,7 +29,7 @@ async function fetchProperty(id) {
             return null;
         }
 
-        const res = await fetch(`${apiDomain}/properties/${id}`)
+        const res = await fetch(`${apiDomain}/properties/${id}`,{ cache: 'force-cache' })
         if (!res.ok) {
             throw new Error(`An error has occured: ${res.statusText}`)
         }
@@ -40,4 +41,4 @@ async function fetchProperty(id) {
     }
 }
 
-export { fetchProperties };
+export { fetchProperties,fetchProperty };

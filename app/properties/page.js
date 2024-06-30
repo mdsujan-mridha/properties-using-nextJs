@@ -9,7 +9,8 @@ import { fetchProperties } from '@/utils/requirests';
 const page = async () => {
 
     const properties = await fetchProperties();
-    properties.sort((a,b)=>new Date(b.createdAt)- new Date(a.createdAt))
+    properties.sort((a,b)=>new Date(b.createdAt)- new Date(a.createdAt));
+    // console.log(properties);
 
     return (
         <section className='px-4 py-6'>
